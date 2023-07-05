@@ -10,13 +10,26 @@ import { HotToastModule } from '@ngneat/hot-toast';
 
 import { initializeAppCheck, provideAppCheck, ReCaptchaV3Provider } from '@angular/fire/app-check';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { SharedModule } from './shared/shared.module';
+import { AddDataComponent } from './add-data/add-data.component';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
+import { TutorialDetailsComponent } from './components/tutorial-details/tutorial-details.component';
+import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
+import { RouterModule } from '@angular/router';
+import { AppRouterModule } from './app.router.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddDataComponent,
+    AddTutorialComponent,
+    TutorialDetailsComponent,
+    TutorialsListComponent
   ],
   imports: [
     BrowserModule,
+    SharedModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideFirestore(() => getFirestore()),
     provideAppCheck(() => {
@@ -27,12 +40,18 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
       })
     }),
     BrowserAnimationsModule,
-    HotToastModule.forRoot()
+    HotToastModule.forRoot(),
+    AppRouterModule
   ],
   providers: [
     {
-      provide: FIREBASE_OPTIONS,
-      useValue: environment.firebase
+      provide: FIREBASE_OPTIONS, useValue: environment.firebase,
+    },
+    {
+      provide: MatDialogRef, useValue: {}
+    },
+    {
+      provide: MAT_DIALOG_DATA, useValue: {}
     }
   ],
   bootstrap: [AppComponent]
