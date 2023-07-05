@@ -10,8 +10,8 @@ Copy it from the browser console. It will appear during site loading before the 
 
 Click on three dots in App Check apps and add copied token.
 
-![app-check](../app-check/src/assets/app-check.png)
+![app-check](src/assets/app-check.png)
 
 than...
 
-![add-token](../app-check/src/assets/add-token.png)
+![add-token](src/assets/add-token.png)
