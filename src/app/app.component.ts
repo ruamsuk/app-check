@@ -37,7 +37,7 @@ export class AppComponent {
         this.dataList = value
         console.log(value)
       },
-      error: err => {}
+      error: err => { console.log(err.message)}
     })
   }
 
