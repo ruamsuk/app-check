@@ -10,8 +10,7 @@ export class AuthService {
 
   constructor(
     @Optional()
-    private auth: Auth,
-    private afAuth: AngularFireAuth
+    private auth: Auth
   ) { }
 
   login(email: string | null | undefined, password: string | null | undefined) {
