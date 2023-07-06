@@ -4,19 +4,33 @@ import {
   collectionData,
   query,
   orderBy,
-  Firestore, addDoc
+  Firestore, addDoc, doc, docData
 } from '@angular/fire/firestore';
-import { from } from 'rxjs';
+import { from, Observable, of, switchMap } from 'rxjs';
 import { User } from '../models/user.model';
+import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AppService {
+  get currentUserProfile$(): Observable<User | null> {
+    return this.authService.currentUser$.pipe(
+      switchMap(user => {
+        if (user?.uid) {
+          const ref = doc(this.firestore, 'users', user?.uid);
+          return docData(ref) as Observable<User>;
+        } else {
+          return of(null);
+        }
+      })
+    );
+  }
 
   constructor(
     @Optional()
     private firestore: Firestore,
+    private authService: AuthService
     ) { }
 
   // addUser(user: { uid: string; displayName: string | null | undefined; email: string | null | undefined }) {
