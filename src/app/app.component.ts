@@ -2,7 +2,7 @@ import { Component, Optional } from '@angular/core';
 import { HotToastService } from '@ngneat/hot-toast';
 import { MatDialog } from '@angular/material/dialog';
 import { AddDataComponent } from './add-data/add-data.component';
-import { AppService } from './app.service';
+import { AppService } from './services/app.service';
 import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
 @UntilDestroy({checkProperties: true})
@@ -21,7 +21,7 @@ export class AppComponent {
     private service: AppService,
     private toast: HotToastService
   ) {
-    this.loadData();
+    // this.loadData();
   }
 
   loadData() {
