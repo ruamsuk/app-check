@@ -4,9 +4,8 @@ import { AddDataComponent } from './add-data/add-data.component';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
 import { AppService } from './services/app.service';
-import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+import { UntilDestroy } from '@ngneat/until-destroy';
 
-@UntilDestroy({checkProperties: true})
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -14,17 +13,12 @@ import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 })
 export class AppComponent implements OnInit {
   title = 'Test my-app-check';
-  user$ = this.userService.currentUserProfile$;
-  canDo: boolean = false;
   constructor(
     @Optional()
     public auth: AuthService,
     private dialog: MatDialog,
     private router: Router,
-    private userService: AppService
-  ) {
-
-  }
+  ) { }
 
   ngOnInit() { }
 
