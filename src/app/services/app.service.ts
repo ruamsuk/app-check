@@ -4,11 +4,10 @@ import {
   collectionData,
   query,
   orderBy,
-  Firestore, addDoc, doc, docData
+  Firestore, addDoc
 } from '@angular/fire/firestore';
-import { from, Observable, of, switchMap } from 'rxjs';
+import { from } from 'rxjs';
 import { User } from '../models/user.model';
-import { AuthService } from './auth.service';
 
 @Injectable({
   providedIn: 'root'
