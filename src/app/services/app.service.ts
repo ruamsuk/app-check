@@ -4,8 +4,10 @@ import {
   collectionData,
   deleteDoc, query,
   doc, orderBy,
-  setDoc, updateDoc, Firestore } from '@angular/fire/firestore';
+  setDoc, updateDoc, Firestore, addDoc
+} from '@angular/fire/firestore';
 import { from } from 'rxjs';
+import { User } from '../models/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +19,13 @@ export class AppService {
     private firestore: Firestore,
     ) { }
 
-  addUser(user: { uid: string; displayName: string | null | undefined; email: string | null | undefined }) {
-    const ref = doc(this.firestore, 'users', `${user.uid}`);
-    return from(setDoc(ref, user));
+  // addUser(user: { uid: string; displayName: string | null | undefined; email: string | null | undefined }) {
+  //   const ref = doc(this.firestore, 'users', `${user.uid}`);
+  //   return from(setDoc(ref, user));
+  // }
+  addUser(user: User) {
+    const docRef = collection(this.firestore, 'users');
+    return from(addDoc(docRef, user));
   }
 
   updateUser(user: any) {

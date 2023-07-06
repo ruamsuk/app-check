@@ -21,6 +21,8 @@ import { TutorialDetailsComponent } from './components/tutorial-details/tutorial
 import { TutorialsListComponent } from './components/tutorials-list/tutorials-list.component';
 import { AppRouterModule } from './app.router.module';
 import { LoginComponent } from './login/login.component';
+import { LandingComponent } from './landing/landing.component';
+import { MatTableResponsiveDirective } from './mat-table-responsive/mat-table-responsive.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { LoginComponent } from './login/login.component';
     AddTutorialComponent,
     TutorialDetailsComponent,
     TutorialsListComponent,
-    LoginComponent
+    LoginComponent,
+    LandingComponent,
+    MatTableResponsiveDirective
   ],
   imports: [
     BrowserModule,

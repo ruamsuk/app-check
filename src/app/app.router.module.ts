@@ -4,6 +4,7 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
 import { AddTutorialComponent } from './components/add-tutorial/add-tutorial.component';
 import { canActivate, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 import { LoginComponent } from './login/login.component';
+import { LandingComponent } from './landing/landing.component';
 
 const redirectToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectToHome = () => redirectLoggedInTo(['home']);
@@ -23,7 +24,11 @@ const routes: Routes = [
   {
     path: 'login', component: LoginComponent,
     ...canActivate(redirectToHome)
-  }
+  },
+  {
+    path: 'landing', component: LandingComponent,
+    ...canActivate(redirectToLogin)
+  },
 ];
 
 @NgModule({
