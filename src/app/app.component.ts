@@ -3,8 +3,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddDataComponent } from './add-data/add-data.component';
 import { AuthService } from './services/auth.service';
 import { Router } from '@angular/router';
-import { AppService } from './services/app.service';
-import { UntilDestroy } from '@ngneat/until-destroy';
 
 @Component({
   selector: 'app-root',

@@ -14,23 +14,11 @@ import { AuthService } from './auth.service';
   providedIn: 'root'
 })
 export class AppService {
-  get currentUserProfile$(): Observable<User | null> {
-    return this.authService.currentUser$.pipe(
-      switchMap(user => {
-        if (user?.uid) {
-          const ref = doc(this.firestore, 'users', user?.uid);
-          return docData(ref) as Observable<User>;
-        } else {
-          return of(null);
-        }
-      })
-    );
-  }
 
   constructor(
     @Optional()
     private firestore: Firestore,
-    private authService: AuthService
+    // private authService: AuthService
     ) { }
 
   // addUser(user: { uid: string; displayName: string | null | undefined; email: string | null | undefined }) {
