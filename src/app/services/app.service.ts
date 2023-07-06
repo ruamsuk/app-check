@@ -2,9 +2,9 @@ import { Injectable, Optional } from '@angular/core';
 import {
   collection,
   collectionData,
-  deleteDoc, query,
-  doc, orderBy,
-  setDoc, updateDoc, Firestore, addDoc
+  query,
+  orderBy,
+  Firestore, addDoc
 } from '@angular/fire/firestore';
 import { from } from 'rxjs';
 import { User } from '../models/user.model';
@@ -28,10 +28,10 @@ export class AppService {
     return from(addDoc(docRef, user));
   }
 
-  updateUser(user: any) {
-    const ref = doc(this.firestore, 'users', `${user.uid}`);
-    return from(updateDoc(ref, {...user}));
-  }
+  // updateUser(user: any) {
+  //   const ref = doc(this.firestore, 'users', `${user.uid}`);
+  //   return from(updateDoc(ref, {...user}));
+  // }
 
   loadUsers() {
     const dbInstance = collection(this.firestore, 'users');
@@ -39,8 +39,8 @@ export class AppService {
     return collectionData(userQuery, {idField: 'id'});
   }
 
-  deleteUser(id: string | undefined) {
-    const docInstance = doc(this.firestore, 'members', `${id}`);
-    return from(deleteDoc(docInstance));
-  }
+  // deleteUser(id: string | undefined) {
+  //   const docInstance = doc(this.firestore, 'members', `${id}`);
+  //   return from(deleteDoc(docInstance));
+  // }
 }
