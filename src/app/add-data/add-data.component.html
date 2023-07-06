@@ -1,0 +1,29 @@
+<mat-toolbar mat-dialog-title>
+  <span class="text-center">Add new data</span>
+</mat-toolbar>
+
+<form [formGroup]="ngForm" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content class="content mt-5">
+    <div class="row">
+      <mat-form-field appearance="outline">
+        <mat-label>Name</mat-label>
+        <input matInput
+               placeholder="First Name"
+               formControlName="firstName"
+               autocomplete="off">
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Last Name</mat-label>
+        <input matInput
+               placeholder="Last Name"
+               formControlName="lastName"
+               autocomplete="off">
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" (click)="closeDialog()">Cancel</button>
+    <button mat-raised-button
+            color="primary" type="submit">{{data ? 'Update' : 'Save'}}</button>
+  </div>
+</form>
