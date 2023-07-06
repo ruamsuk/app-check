@@ -22,7 +22,6 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
 import { AppRouterModule } from './app.router.module';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
-import { MatTableResponsiveDirective } from './mat-table-responsive/mat-table-responsive.directive';
 
 @NgModule({
   declarations: [
@@ -32,8 +31,7 @@ import { MatTableResponsiveDirective } from './mat-table-responsive/mat-table-re
     TutorialDetailsComponent,
     TutorialsListComponent,
     LoginComponent,
-    LandingComponent,
-    MatTableResponsiveDirective
+    LandingComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +48,7 @@ import { MatTableResponsiveDirective } from './mat-table-responsive/mat-table-re
     }),
     BrowserAnimationsModule,
     HotToastModule.forRoot(),
-    AppRouterModule
+    AppRouterModule,
   ],
   providers: [
     {

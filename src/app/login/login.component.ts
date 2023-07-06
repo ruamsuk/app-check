@@ -1,7 +1,6 @@
 import { Component, Optional } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { HotToastService } from '@ngneat/hot-toast';
-import { AppComponent } from '../app.component';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 

@@ -1,6 +1,7 @@
 import { Component, Optional } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddDataComponent } from './add-data/add-data.component';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,7 @@ export class AppComponent {
   title = 'Test my-app-check';
   constructor(
     @Optional()
+    public auth: AuthService,
     private dialog: MatDialog,
   ) { }
 
