@@ -42,7 +42,10 @@ export class LoginComponent {
       .subscribe({
         next: (user) => {
           if (!user.user.emailVerified) {
-            this.toast.warning("Email not verified You can't do anything.");
+            this.toast.error("Email not verified You can't do anything.");
+            this.authService.sendEmail().then(
+              () => this.toast.warning('Send email verified check your inbox!')
+            )
           }
           this.doAction(false);
         },
