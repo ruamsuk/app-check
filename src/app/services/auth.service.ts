@@ -1,5 +1,5 @@
 import { Injectable, Optional } from '@angular/core';
-import { Auth, authState, signInWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { BehaviorSubject, from } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 
