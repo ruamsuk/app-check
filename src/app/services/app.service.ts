@@ -33,8 +33,8 @@ export class AppService {
     return from(addDoc(docRef, user));
   }
 
-  updateUser(user: any) {
-    const ref = doc(this.firestore, 'users', `${user.uid}`);
+  updateUser(user: User) {
+    const ref = doc(this.firestore, 'users', `${user.id}`);
     return from(updateDoc(ref, {...user}));
   }
 
