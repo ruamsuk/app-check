@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Tutorial } from '../../models/tutorial.model';
 import { map } from 'rxjs';
 import { TutorialService } from '../../services/tutorial.service';
-
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
+@UntilDestroy({checkProperties: true})
 @Component({
   selector: 'app-tutorials-list',
   templateUrl: './tutorials-list.component.html',
@@ -12,7 +13,6 @@ export class TutorialsListComponent implements OnInit {
   tutorials?: Tutorial[];
   currentTutorial?: Tutorial;
   currentIndex = -1;
-  title = '';
 
   constructor(private tutorialService: TutorialService) { }
 
@@ -35,7 +35,9 @@ export class TutorialsListComponent implements OnInit {
         changes.map(c =>
           ({ id: c.payload.doc.id, ...c.payload.doc.data() })
         )
-      ) // @ts-ignore
+      ),
+      untilDestroyed(this)
+      // @ts-ignore
     ).subscribe(data => {
       this.tutorials = data;
     });

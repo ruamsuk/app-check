@@ -22,12 +22,14 @@ import { TutorialsListComponent } from './components/tutorials-list/tutorials-li
 import { AppRouterModule } from './app.router.module';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './landing/landing.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AddDataComponent,
     AddTutorialComponent,
+    ConfirmDialogComponent,
     TutorialDetailsComponent,
     TutorialsListComponent,
     LoginComponent,
